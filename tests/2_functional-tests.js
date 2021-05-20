@@ -112,7 +112,3 @@ suite("Functional Tests", () => {
       });
   });
 });
-
-//
-//
-//

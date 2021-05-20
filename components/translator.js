@@ -2,8 +2,7 @@ const americanOnly = require("./american-only.js");
 const americanToBritishSpelling = require("./american-to-british-spelling.js");
 const americanToBritishTitles = require("./american-to-british-titles.js");
 const britishOnly = require("./british-only.js");
-//case insensitive
-// space before or after
+
 class Translator {
   getKeyByValue(object, value) {
     return Object.keys(object).find((key) => object[key] === value);
