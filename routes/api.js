@@ -10,11 +10,17 @@ module.exports = function (app) {
     const locale = req.body.locale;
     if (originalText === "") {
       res.json({ error: "No text to translate" });
-    } else if (
-      originalText &&
-      (locale === "american-to-british" || locale === "british-to-american")
-    ) {
-      let translatedText;
+    } else if (originalText && locale === "american-to-british") {
+      let translatedText = translator.translateToBritish(originalText);
+      if (originalText === translatedText) {
+        translatedText = "Everything looks good to me!";
+      }
+      res.json({ text: originalText, translation: translatedText });
+    } else if (originalText && locale === "british-to-american") {
+      let translatedText = translator.translateToAmerican(originalText);
+      if (originalText === translatedText) {
+        translatedText = "Everything looks good to me!";
+      }
       res.json({ text: originalText, translation: translatedText });
     } else if (originalText && locale) {
       res.json({ error: "Invalid value for locale field" });
